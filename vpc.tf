@@ -18,6 +18,17 @@ resource "aws_subnet" "p2_public_subnet" {
   }
 }
 
+resource "aws_subnet" "p2_public_subnet_2" {
+  vpc_id     = aws_vpc.p2_vpc.id
+  cidr_block = "10.0.2.0/24"
+  availability_zone = "us-east-1b"
+  map_public_ip_on_launch = true
+  tags = {
+    Name = "p2_public_subnet_2"
+  }
+}
+
+
 resource "aws_subnet" "p2_private_subnet" {
   vpc_id     = aws_vpc.p2_vpc.id
   cidr_block = "10.0.2.0/24"
@@ -48,6 +59,10 @@ resource "aws_route_table_association" "p2_public_association" {
   route_table_id = aws_route_table.p2_public_route_table.id
 }
 
+resource "aws_route_table_association" "p2_public_association_2" {
+  subnet_id      = aws_subnet.p2_public_subnet_2.id
+  route_table_id = aws_route_table.p2_public_route_table.id
+}
 
 
 
