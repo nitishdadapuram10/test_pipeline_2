@@ -15,7 +15,7 @@ resource "aws_security_group" "p2_ec2_sg" {
 
 resource "aws_security_group" "p2_alb_sg" {
   name        = "p2_alb_sg"
-  description = "Allowing traffic from my laptop's IP and EC2"
+  description = "Allowing traffic from my laptop IP and EC2"
   vpc_id      = aws_vpc.p2_vpc.id
 
    ingress {
