@@ -1,5 +1,5 @@
 resource "aws_instance" "p2_ec2" {
-  ami           = "ami-014e2b14bdb83e8ca"
+  ami           = "ami-05c179eced2eb9b5b"
   instance_type = "t2.micro"
   subnet_id     = aws_subnet.p2_private_subnet.id
   security_groups = [aws_security_group.p2_ec2_sg.name]
