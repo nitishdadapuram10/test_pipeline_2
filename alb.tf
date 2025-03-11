@@ -17,13 +17,10 @@ resource "aws_lb_listener" "http" {
   port              = 80
   protocol          = "HTTP"
 
+
   default_action {
-    type             = "fixed-response"
-    fixed_response {
-      content_type = "text/plain"
-      status_code = 200
-      message_body = "Welcome to Cloud"
-    }
+    type             = "forward"
+    target_group_arn = aws_lb_target_group.p2_ec2_target_group.arn
   }
 }
 
