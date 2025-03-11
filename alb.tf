@@ -6,7 +6,6 @@ resource "aws_lb" "p2_alb" {
   subnets            = [aws_subnet.p2_public_subnet.id]
 
  
-  enable_cross_zone_load_balancing = true
 
   tags = {
     Name = "p2_alb"
