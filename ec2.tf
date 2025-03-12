@@ -1,5 +1,5 @@
 resource "aws_instance" "p2_ec2" {
-  ami           = "ami-08b5b3a93ed654d19"
+  ami           = "ami-0d0f28110d16ee7d6"
   instance_type = "t2.micro"
   subnet_id     = aws_subnet.p2_private_subnet.id
   vpc_security_group_ids = [aws_security_group.p2_ec2_sg.id]
@@ -7,8 +7,7 @@ resource "aws_instance" "p2_ec2" {
 
   user_data = <<-EOF
               #!/bin/bash
-              sudo yum install httpd -y
-              echo "Welcome to Cloud P2" | sudo tee /var/www/html/index.html
+              echo "Welcome to Cloud P2" > /var/www/html/index.html
               sudo systemctl start httpd
               sudo systemctl enable httpd
               EOF
@@ -17,16 +16,16 @@ resource "aws_instance" "p2_ec2" {
     Name = "PrivateEC2_P2"
   }
 }
+
 resource "aws_instance" "p2_ec2_2" {
-  ami           = "ami-08b5b3a93ed654d19"
+  ami           = "ami-0d0f28110d16ee7d6"
   instance_type = "t2.micro"
- 
+
 
 
   user_data = <<-EOF
               #!/bin/bash
-              sudo yum install httpd -y
-              echo "Welcome to Cloud P2" | sudo tee /var/www/html/index.html
+              echo "Welcome to Cloud P2" > /var/www/html/index.html
               sudo systemctl start httpd
               sudo systemctl enable httpd
               EOF
