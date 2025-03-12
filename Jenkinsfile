@@ -20,11 +20,11 @@ pipeline{
                 bat 'terraform plan'
             }
         }
-         stage('Terraform Apply'){
-            steps{
-                bat 'terraform apply --auto-approve'
-            }
-        }
+     //    stage('Terraform Apply'){
+      //      steps{
+       //         bat 'terraform apply --auto-approve'
+        //    }
+      //  }
          stage('Terraform Destroy'){
           steps{
                 sh 'terraform destroy --auto-approve'
