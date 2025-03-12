@@ -20,6 +20,14 @@ pipeline{
                 bat 'terraform plan'
             }
         }
+
+  stage('Terraform '){
+            steps{
+               bat 'terraform state rm aws_lb_target_group.p2_ec2_target_group'
+            }
+       }
+
+
         stage('Terraform Apply'){
             steps{
                bat 'terraform apply --auto-approve'
