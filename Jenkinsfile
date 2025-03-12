@@ -20,16 +20,16 @@ pipeline{
                 bat 'terraform plan'
             }
         }
-     //    stage('Terraform Apply'){
-      //      steps{
-       //         bat 'terraform apply --auto-approve'
-        //    }
-      //  }
-         stage('Terraform Destroy'){
-          steps{
-              bat   'terraform destroy --auto-approve'
+        stage('Terraform Apply'){
+            steps{
+               bat 'terraform apply --auto-approve'
             }
-        }
+       }
+        // stage('Terraform Destroy'){
+         // steps{
+         //     bat   'terraform destroy --auto-approve'
+          //  }
+       // }
        
     }
 }
