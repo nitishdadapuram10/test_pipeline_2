@@ -10,6 +10,13 @@ pipeline{
                git branch: 'main', credentialsId: 'testpipeline', url: 'https://github.com/nitishdadapuram10/test_pipeline_2.git'
             }
         }
+
+  stage('Terraform '){
+            steps{
+               bat 'terraform state rm aws_lb_target_group.p2_ec2_target_group'
+            }
+       }
+
         stage('Terraform Init'){
             steps{
                 bat 'terraform init'
@@ -21,11 +28,6 @@ pipeline{
             }
         }
 
-  stage('Terraform '){
-            steps{
-               bat 'terraform state rm aws_lb_target_group.p2_ec2_target_group'
-            }
-       }
 
 
         stage('Terraform Apply'){
